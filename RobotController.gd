@@ -1,50 +1,62 @@
 # RobotController.gd
-
 extends CharacterBody3D
 
-# Access the AnimationPlayer node. Adjust the path if yours is deeper in the hierarchy!
-@onready var animation_player: AnimationPlayer = $AnimationPlayer 
+@onready var animation_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
+@onready var claw_hitbox: Area3D = find_child("ClawHitbox", true, false)
 
-# Use the animations found in the provided model
-const IDLE_ANIM_NAME = "idle" 
-const SMASH_ANIM_NAME = "grab" # We'll use 'grab' as the smashing action
+const IDLE_ANIM_NAME := "idle"
+const SMASH_ANIM_NAME := "grab" # using grab as smash
 
-var movement_tween: Tween = null
+var movement_tween: Tween
+var is_smashing := false
 
-func _ready():
-	# Start the robot in the idle state
+func _ready() -> void:
+	if animation_player == null:
+		push_error("AnimationPlayer not found under robot.")
+		return
+
+	if claw_hitbox == null:
+		push_error("ClawHitbox (Area3D) not found under robot.")
+		return
+
+	# Listen for overlaps: Area3D -> body_entered (because targets are StaticBody3D)
+	claw_hitbox.body_entered.connect(_on_claw_hitbox_body_entered)
+
+	# Start idle
 	if animation_player.has_animation(IDLE_ANIM_NAME):
 		animation_player.play(IDLE_ANIM_NAME)
 
-# --- Function to handle smooth movement using Tween (REQUIRED) ---
-func move_base_to(target_position: Vector3, duration: float = 0.5):
-	# Kill any current movement
-	if movement_tween:
-		movement_tween.kill()
-	
-	# Create the required Tween instance for "tween animations"
-	movement_tween = create_tween()
-	
-	# Tween the global_position property of the CharacterBody3D
-	movement_tween.tween_property(self, "global_position", target_position, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-# --- Function to play the smash animation ---
-func smash_action():
-	if animation_player.has_animation(SMASH_ANIM_NAME):
-		animation_player.play(SMASH_ANIM_NAME)
-		# Immediately return to idle after the smash duration
-		# We assume 'grab' is short, maybe 1 second long
-		await get_tree().create_timer(1.0).timeout
-		if animation_player.has_animation(IDLE_ANIM_NAME):
-			animation_player.play(IDLE_ANIM_NAME)
-
-	else:
-		print("Error: Smash animation '%s' not found!" % SMASH_ANIM_NAME)
-
-# Placeholder for testing:
-func _input(event):
-	if event.is_action_pressed("ui_accept"): # Default key is Enter/Space
+func _input(event: InputEvent) -> void:
+	# Use Space by default (ui_accept). If you made an InputMap action "smash", swap this.
+	if event.is_action_pressed("ui_accept"):
 		smash_action()
-		# Example Test Move (optional for now)
-		# var target_pos = global_position + Vector3(1, 0, 1)
-		# move_base_to(target_pos)
+
+func smash_action() -> void:
+	if animation_player == null:
+		return
+	if not animation_player.has_animation(SMASH_ANIM_NAME):
+		push_warning("No animation named '%s' found." % SMASH_ANIM_NAME)
+		return
+
+	is_smashing = true
+
+	animation_player.stop()
+	animation_player.play(SMASH_ANIM_NAME)
+
+	# Wait until the animation finishes (better than guessing 1.0 seconds)
+	await animation_player.animation_finished
+
+	is_smashing = false
+
+	# Return to idle
+	if animation_player.has_animation(IDLE_ANIM_NAME):
+		animation_player.play(IDLE_ANIM_NAME)
+
+func _on_claw_hitbox_body_entered(body: Node) -> void:
+	# Only delete stuff during the smash window
+	if not is_smashing:
+		return
+
+	if body != null and body.is_in_group("smash_target"):
+		# Quick win: delete the target
+		body.queue_free()
