@@ -1,1 +1,3 @@
+res://RobotArm.tscn
 res://MainLevel.tscn
+res://RobotController.gd

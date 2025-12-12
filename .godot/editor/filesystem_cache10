@@ -1,8 +1,14 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1765331736
+::res://::1765503175
 icon.svg::CompressedTexture2D::6579514343845079113::1765276509::1765276519::1::::<><><>0<>0<>6f6d13027af1ca24d0f68f49c89d3915<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-MainLevel.tscn::PackedScene::6121244231759644132::1765331736::0::1::::<><><>0<>0<><>::
-::res://Images_Subplan/::1765331780
+MainLevel.tscn::PackedScene::6121244231759644132::1765334909::0::1::::<><><>0<>0<><>::
+README.md::TextFile::-1::1765332247::0::1::::<><><>0<>0<><>::
+::res://assets/::1765503181
+::res://assets/models/::1765503680
+arm.glb::PackedScene::6786942479142308564::1765503640::1765503694::1::::<><><>0<>0<>e6d6488b1ee700124505f63791b3d7a8<>res://.godot/imported/arm.glb-949a4d2388bc6c4a81c7f2ef713a8c27.scn::
+::res://assets/models/robot_arm_blender_mechanically_rigged_gltf/::1765503223
+scene.gltf::PackedScene::6552318653107839335::1765503010::1765503223::1::::<><><>0<>0<>a6f161e9ca1968946890395fb776c72f<>res://.godot/imported/scene.gltf-417ccb9545b7ff31feb742444285880e.scn::
+::res://Images_Subplan/::1765331781
 2025-12-09 17_54_56-(_) MainLevel.tscn - A3_RobotSmash - Godot Engine.png::CompressedTexture2D::8354408202191477998::1765331729::1765331729::1::::<><><>0<>0<>5095606f0ba5d5a1bcefec15f502aa1f<>res://.godot/imported/2025-12-09 17_54_56-(_) MainLevel.tscn - A3_RobotSmash - Godot Engine.png-b3a1c86b9d5fac0196c3c5f0be9c57e1.ctex::
 2025-12-09 17_55_41-MainLevel.tscn - A3_RobotSmash - Godot Engine.png::CompressedTexture2D::6016605106045683823::1765331751::1765331752::1::::<><><>0<>0<>5cae84c1b59a630e27a91ecee3bb5907<>res://.godot/imported/2025-12-09 17_55_41-MainLevel.tscn - A3_RobotSmash - Godot Engine.png-f76789662c1ce2d09f1917d16b81438f.ctex::
 2025-12-09 17_56_13-.png::CompressedTexture2D::1287676112446344627::1765331781::1765331781::1::::<><><>0<>0<>64c6333028d7bc35e95c34473a676d98<>res://.godot/imported/2025-12-09 17_56_13-.png-7889cb1212f0b7876c3a0dd578ce8588.ctex::
