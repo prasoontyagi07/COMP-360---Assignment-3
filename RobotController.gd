@@ -18,8 +18,8 @@ const SMASH_ANIM_NAME := "grab" # using grab as smash
 @export var pitch_limit: float = PI / 4.0
 
 # Hop tuning
-@export var hop_height: float = 1.8      # increase this for higher hop
-@export var hop_distance: float = 1.0    # only used if moving
+@export var hop_height: float = 1.8
+@export var hop_distance: float = 1.0
 @export var hop_up_time: float = 0.15
 @export var hop_down_time: float = 0.20
 
@@ -39,7 +39,7 @@ func _ready() -> void:
 		push_error("ClawHitbox (Area3D) not found under robot.")
 		return
 
-	# Capture mouse + force this camera active
+	# Camera: capture mouse + force this camera active
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if camera:
 		camera.current = true
@@ -76,7 +76,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		hop_action()
 		return
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# If hopping, tween is controlling position
 	if is_hopping:
 		return
@@ -102,9 +102,9 @@ func _physics_process(delta: float) -> void:
 func _get_move_input_dir() -> Vector3:
 	var dir := Vector3.ZERO
 
-	# Use camera rotation so WASD matches where you're looking
+	# Use camera yaw so WASD matches where you're looking
 	var yaw := spring_arm_pivot.rotation.y
-	var forward := Vector3.FORWARD.rotated(Vector3.UP, yaw) # (0,0,-1) rotated by yaw
+	var forward := Vector3.FORWARD.rotated(Vector3.UP, yaw)
 	var right := Vector3.RIGHT.rotated(Vector3.UP, yaw)
 
 	if Input.is_action_pressed("forward"):
@@ -133,9 +133,8 @@ func hop_action() -> void:
 
 	# Only move forward if you are holding a movement key
 	var move_dir := _get_move_input_dir()
-	var offset := move_dir * hop_distance # becomes Vector3.ZERO if not moving
+	var offset := move_dir * hop_distance
 
-	# Up then down
 	var peak := start + Vector3(0.0, hop_height, 0.0) + (offset * 0.5)
 	var end := start + offset
 
@@ -170,9 +169,17 @@ func smash_action() -> void:
 		animation_player.play(IDLE_ANIM_NAME)
 
 func _on_claw_hitbox_body_entered(body: Node) -> void:
-	# Only delete stuff during the smash window
+	# Only trigger smash effects during the smash window
 	if not is_smashing:
 		return
 
-	if body != null and body.is_in_group("smash_target"):
-		body.queue_free()
+	if body == null:
+		return
+
+	if body.is_in_group("smash_target"):
+		# NEW: call smash() on the target (target handles fade/coins/etc)
+		if body.has_method("smash"):
+			body.call_deferred("smash")  # safe even if we’re mid-physics step
+		else:
+			# fallback so it still works even before you add the target script
+			body.queue_free()
