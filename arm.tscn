@@ -5,11 +5,14 @@
 [node name="arm" instance=ExtResource("1_5qy1j")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/rotation = Quaternion(-0.04596612, -9.724782e-08, -6.537224e-09, 0.998943)
-bones/2/rotation = Quaternion(-0.0024142454, -1.0946001e-14, 5.9752596e-17, 0.99999714)
-bones/3/rotation = Quaternion(0.72442466, -2.0959561e-07, -1.8858158e-07, 0.689354)
-bones/4/rotation = Quaternion(0.92387956, -0.38268346, -2.2440393e-07, 1.2013071e-07)
-bones/5/rotation = Quaternion(0.92387956, 0.38268346, -2.3817084e-07, -1.2013074e-07)
-bones/6/rotation = Quaternion(0.7071068, -2.219725e-07, -2.219725e-07, 0.7071068)
-bones/7/rotation = Quaternion(0.7071068, -2.219725e-07, -2.219725e-07, 0.7071068)
-bones/8/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/1/rotation = Quaternion(-0.17396717, -9.9995006e-08, -3.397734e-08, 0.98475146)
+bones/2/rotation = Quaternion(-0.4575414, -1.06664335e-14, -2.902419e-14, 0.88918835)
+bones/3/rotation = Quaternion(0.8289469, 5.7657594e-08, -2.6094386e-07, 0.5593273)
+bones/4/rotation = Quaternion(0.92387956, -0.38268346, -2.066048e-07, 1.3556775e-07)
+bones/5/rotation = Quaternion(0.92387956, 0.38268346, -2.3650063e-07, -9.662918e-08)
+bones/6/position = Vector3(-2.842171e-14, 2.2885368, 1.8101465)
+bones/6/rotation = Quaternion(0.6652326, -2.3438146e-07, -2.0882747e-07, 0.7466362)
+bones/7/position = Vector3(0, 3.570857, 1.2781506)
+bones/7/rotation = Quaternion(0.47556108, -2.7614686e-07, -1.4928649e-07, 0.87968266)
+bones/8/position = Vector3(0, 3.267701, -1.1550614)
+bones/8/rotation = Quaternion(-0.93912137, 0, 0, 0.34358585)

@@ -7,6 +7,8 @@ extends CharacterBody3D
 const IDLE_ANIM_NAME := "idle"
 const SMASH_ANIM_NAME := "grab" # using grab as smash
 
+@export var move_speed: float = 4.0
+
 var movement_tween: Tween
 var is_smashing := false
 
@@ -26,10 +28,47 @@ func _ready() -> void:
 	if animation_player.has_animation(IDLE_ANIM_NAME):
 		animation_player.play(IDLE_ANIM_NAME)
 
-func _input(event: InputEvent) -> void:
-	# Use Space by default (ui_accept). If you made an InputMap action "smash", swap this.
+func _unhandled_input(event: InputEvent) -> void:
+	# Quit (Escape mapped to "quit")
+	if event.is_action_pressed("quit"):
+		get_tree().quit()
+		return
+
+	# Smash (Space mapped to ui_accept)
 	if event.is_action_pressed("ui_accept"):
 		smash_action()
+
+func _physics_process(delta: float) -> void:
+	# Basic WASD movement (XZ plane)
+	var input_dir := Vector3.ZERO
+
+	# If you want movement relative to the robot's facing direction:
+	var forward_dir: Vector3 = -global_transform.basis.z
+	var right_dir: Vector3 = global_transform.basis.x
+
+	if Input.is_action_pressed("forward"):
+		input_dir += forward_dir
+	if Input.is_action_pressed("back"):
+		input_dir -= forward_dir
+	if Input.is_action_pressed("right"):
+		input_dir += right_dir
+	if Input.is_action_pressed("left"):
+		input_dir -= right_dir
+
+	input_dir.y = 0.0
+
+	if input_dir.length() > 0.0:
+		input_dir = input_dir.normalized()
+		velocity.x = input_dir.x * move_speed
+		velocity.z = input_dir.z * move_speed
+	else:
+		velocity.x = 0.0
+		velocity.z = 0.0
+
+	# Keep grounded / no jump for now
+	velocity.y = 0.0
+
+	move_and_slide()
 
 func smash_action() -> void:
 	if animation_player == null:
@@ -38,12 +77,16 @@ func smash_action() -> void:
 		push_warning("No animation named '%s' found." % SMASH_ANIM_NAME)
 		return
 
+	# Prevent re-triggering if already smashing
+	if is_smashing:
+		return
+
 	is_smashing = true
 
 	animation_player.stop()
 	animation_player.play(SMASH_ANIM_NAME)
 
-	# Wait until the animation finishes (better than guessing 1.0 seconds)
+	# Wait until the animation finishes
 	await animation_player.animation_finished
 
 	is_smashing = false
