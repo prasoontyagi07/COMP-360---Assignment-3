@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://1rignv7aqoat"]
+[gd_scene load_steps=5 format=3 uid="uid://1rignv7aqoat"]
 
 [ext_resource type="Script" uid="uid://csd51rqdxv811" path="res://coin.gd" id="1_0t63x"]
 [ext_resource type="PackedScene" uid="uid://cvtu1r6g54y4i" path="res://stylized_coin.glb" id="2_v7riw"]
+[ext_resource type="AudioStream" uid="uid://b0vsmmimxn8wl" path="res://sounds/spinning-coin-on-table-352448.mp3" id="3_v7riw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pdq0q"]
 radius = 0.491658
@@ -14,3 +15,6 @@ script = ExtResource("1_0t63x")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000451565, 0.768295, -0.02253)
 shape = SubResource("SphereShape3D_pdq0q")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_v7riw")

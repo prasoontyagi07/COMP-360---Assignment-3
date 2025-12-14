@@ -14,6 +14,9 @@ func _ready() -> void:
 		coin_scene = preload("res://Coin.tscn")
 
 func smash() -> void:
+	print("BOX SMASHED")
+
+
 	if _smashed:
 		return
 	_smashed = true
@@ -29,12 +32,15 @@ func smash() -> void:
 	queue_free()
 
 func _spawn_coins() -> void:
+	
 	if coin_scene == null:
 		return
 
 	var parent := get_parent()
 	if parent == null:
 		return
+		
+
 
 	for i in range(coin_count):
 		var coin := coin_scene.instantiate()

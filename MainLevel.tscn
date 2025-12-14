@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cthf865fk5g2g"]
+[gd_scene load_steps=31 format=4 uid="uid://cthf865fk5g2g"]
 
 [ext_resource type="PackedScene" uid="uid://duqdrhitlc63h" path="res://RobotArm.tscn" id="1_jq6gy"]
 [ext_resource type="PackedScene" uid="uid://3bsfvhane57v" path="res://SmashTarget.tscn" id="1_o3cl4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://fj21p7x1quid" path="res://basic_crate_2.png" id="5_taiwb"]
 [ext_resource type="Texture2D" uid="uid://bo8qa46g8g23h" path="res://basic_crate_1.png" id="6_p40m6"]
 [ext_resource type="FontFile" uid="uid://ceuk3qhnhyv5a" path="res://assets/Press_Start_2P/PressStart2P-Regular.ttf" id="9_p40m6"]
+[ext_resource type="PackedScene" uid="uid://dj4doivgdr01o" path="res://game_manager.tscn" id="10_78kfj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq6gy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -253,6 +254,19 @@ offset_bottom = 80.0
 text = "Score:  0"
 label_settings = SubResource("LabelSettings_0rh38")
 
+[node name="TimerLabel" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_bottom = 49.0
+grow_horizontal = 0
+text = "Time: 30
+"
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("timer_label") instance=ExtResource("10_78kfj")]
+target_scene = ExtResource("1_o3cl4")
+timer_label = NodePath("../HUD/TimerLabel")
 [node name="Wall_N" type="MeshInstance3D" parent="."]
 transform = Transform3D(22, 0, 0, 0, 15, 0, 0, 0, 1, 0, 2, -10.9921)
 material_override = SubResource("StandardMaterial3D_p40m6")
