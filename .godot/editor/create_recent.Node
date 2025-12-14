@@ -1,3 +1,5 @@
+Label
+CanvasLayer
 DirectionalLight3D
 CollisionShape3D
 CharacterBody3D

@@ -1,14 +1,37 @@
-63f7b34db8d8cdea90c76aacccf841ec
-::res://::1765503175
-icon.svg::CompressedTexture2D::6579514343845079113::1765276509::1765276519::1::::<><><>0<>0<>6f6d13027af1ca24d0f68f49c89d3915<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-MainLevel.tscn::PackedScene::6121244231759644132::1765334909::0::1::::<><><>0<>0<><>::
-README.md::TextFile::-1::1765332247::0::1::::<><><>0<>0<><>::
-::res://assets/::1765503181
-::res://assets/models/::1765503680
-arm.glb::PackedScene::6786942479142308564::1765503640::1765503694::1::::<><><>0<>0<>e6d6488b1ee700124505f63791b3d7a8<>res://.godot/imported/arm.glb-949a4d2388bc6c4a81c7f2ef713a8c27.scn::
-::res://assets/models/robot_arm_blender_mechanically_rigged_gltf/::1765503223
-scene.gltf::PackedScene::6552318653107839335::1765503010::1765503223::1::::<><><>0<>0<>a6f161e9ca1968946890395fb776c72f<>res://.godot/imported/scene.gltf-417ccb9545b7ff31feb742444285880e.scn::
-::res://Images_Subplan/::1765331781
-2025-12-09 17_54_56-(_) MainLevel.tscn - A3_RobotSmash - Godot Engine.png::CompressedTexture2D::8354408202191477998::1765331729::1765331729::1::::<><><>0<>0<>5095606f0ba5d5a1bcefec15f502aa1f<>res://.godot/imported/2025-12-09 17_54_56-(_) MainLevel.tscn - A3_RobotSmash - Godot Engine.png-b3a1c86b9d5fac0196c3c5f0be9c57e1.ctex::
-2025-12-09 17_55_41-MainLevel.tscn - A3_RobotSmash - Godot Engine.png::CompressedTexture2D::6016605106045683823::1765331751::1765331752::1::::<><><>0<>0<>5cae84c1b59a630e27a91ecee3bb5907<>res://.godot/imported/2025-12-09 17_55_41-MainLevel.tscn - A3_RobotSmash - Godot Engine.png-f76789662c1ce2d09f1917d16b81438f.ctex::
-2025-12-09 17_56_13-.png::CompressedTexture2D::1287676112446344627::1765331781::1765331781::1::::<><><>0<>0<>64c6333028d7bc35e95c34473a676d98<>res://.godot/imported/2025-12-09 17_56_13-.png-7889cb1212f0b7876c3a0dd578ce8588.ctex::
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1765689988
+arm.gd::GDScript::9171845892013463870::1765686841::0::1::::<>Node3D<><>0<>0<><>::
+arm.glb::PackedScene::5229462175188380752::1765686841::1765686959::1::::<><><>0<>0<>a8f559ee076849c06ad80a641870e91e<>res://.godot/imported/arm.glb-758a9937edcd9a629dcf028de25be157.scn::
+arm.tscn::PackedScene::4434569188322867845::1765686841::0::1::::<><><>0<>0<><>::uid://cgrgqis8cop8c::::res://arm.glb
+basic_crate.glb::PackedScene::8617746245106119170::1765686841::1765686963::1::::<><><>0<>0<>b40154d0c0008eb06684f2a8ffcaf9c2<>res://.godot/imported/basic_crate.glb-354bc16ad5e2702c848b9cf26b6b4f1d.scn::uid://c75pnrep0a44h::::res://basic_crate_3.jpg<>uid://ofus6p5f2pv7::::res://basic_crate_4.jpg<>uid://bsek8h45yjfr5::::res://basic_crate_5.png<>uid://dy7jth5x6as0g::::res://basic_crate_0.jpg<>uid://bo8qa46g8g23h::::res://basic_crate_1.png<>uid://fj21p7x1quid::::res://basic_crate_2.png
+basic_crate_0.jpg::CompressedTexture2D::8910435184635130736::1765686959::1765686959::1::::<><><>0<>0<>7cc777a8806d88d1e3ae300ab1805274<>res://.godot/imported/basic_crate_0.jpg-a8c8247f0bd9eca33c4dda527bd73421.s3tc.ctex::
+basic_crate_1.png::CompressedTexture2D::3438162003776861163::1765686841::1765686958::1::::<><><>0<>0<>1b48d6b23fa26fbc45f63cff22dced08<>res://.godot/imported/basic_crate_1.png-7177d5ca32fd850b9cd1683e71a88945.s3tc.ctex::
+basic_crate_2.png::CompressedTexture2D::371210245787326947::1765686841::1765686958::1::::<><><>0<>0<>ee7a8e3635898488de82d889df914734<>res://.godot/imported/basic_crate_2.png-076a7e33e9ca8cb1b45bcc3fdbd23d36.s3tc.ctex::
+basic_crate_3.jpg::CompressedTexture2D::7081750566428436677::1765686959::1765686959::1::::<><><>0<>0<>53983a500237fde3655aa0232d97ce13<>res://.godot/imported/basic_crate_3.jpg-2d48e6a4c06e3c1ab8313dbbea92481b.s3tc.ctex::
+basic_crate_4.jpg::CompressedTexture2D::994213836615114062::1765686959::1765686959::1::::<><><>0<>0<>e5648f9fef9d61944986db9d81b1f119<>res://.godot/imported/basic_crate_4.jpg-c74dc5fd61529c2019fca98b53ee5cd5.s3tc.ctex::
+basic_crate_5.png::CompressedTexture2D::3658743895178723260::1765686841::1765686958::1::::<><><>0<>0<>e878dfa8be12f7b543c7f65ee409b5fd<>res://.godot/imported/basic_crate_5.png-88a26483c727b67bf0dff34a7df42210.s3tc.ctex::
+coin.gd::GDScript::6044302544339215114::1765689370::0::1::::<>Area3D<><>0<>0<><>::
+coin.tscn::PackedScene::1860501523812442507::1765689988::0::1::::<><><>0<>0<><>::uid://csd51rqdxv811::::res://coin.gd<>uid://cvtu1r6g54y4i::::res://stylized_coin.glb
+icon.svg::CompressedTexture2D/CompressedTexture2D::6579514343845079113::1765686841::1765686957::1::::<><><>0<>0<>07998ffff3c4b227ed42010ba5d3e085<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+MainLevel.tscn::PackedScene::6121244231759644132::1765689988::0::1::::<><><>0<>0<><>::uid://duqdrhitlc63h::::res://RobotArm.tscn<>uid://3bsfvhane57v::::res://SmashTarget.tscn<>uid://c75pnrep0a44h::::res://basic_crate_3.jpg<>uid://ofus6p5f2pv7::::res://basic_crate_4.jpg<>uid://bsek8h45yjfr5::::res://basic_crate_5.png<>uid://dy7jth5x6as0g::::res://basic_crate_0.jpg<>uid://fj21p7x1quid::::res://basic_crate_2.png<>uid://bo8qa46g8g23h::::res://basic_crate_1.png
+README.md::TextFile::-1::1765686841::0::1::::<><><>0<>0<><>::
+GameManager.gd::GDScript::8709494841520751693::1765688751::0::1::::<>Node<><>0<>0<><>::
+RobotArm.tscn::PackedScene::8596281858279564379::1765689988::0::1::::<><><>0<>0<><>::uid://d33ltnrox083o::::res://RobotController.gd
+RobotController.gd::GDScript::9183054776795588098::1765686841::0::1::::<>CharacterBody3D<><>0<>0<><>::
+sketchfab_scene.tscn::PackedScene::3265115719849088822::1765686841::0::1::::<><><>0<>0<><>::uid://du1ray7rm0qes::::res://basic_crate.glb
+SmashTarget.tscn::PackedScene::1968454948279836669::1765686841::0::1::::<><><>0<>0<><>::uid://c3od2ubjqcal7::::res://static_body_3d.gd<>uid://bmrv8jtmugcpa::::res://sketchfab_scene.tscn
+static_body_3d.gd::GDScript::6767261697663863814::1765686841::0::1::::<>StaticBody3D<><>0<>0<><>::
+stylized_coin.glb::PackedScene::6287291972708635018::1765686841::1765686963::1::::<><><>0<>0<>50f88b30d17f3636c3a6a8c1d7a71214<>res://.godot/imported/stylized_coin.glb-011c3c6f65ae844a561237bf3965cb8b.scn::uid://bc0j0eoj2np0k::::res://stylized_coin_0.jpg
+stylized_coin_0.jpg::CompressedTexture2D::2578999144769372240::1765686963::1765686963::1::::<><><>0<>0<>ccaea1b17f08355f3ea6e8a2e69aeab7<>res://.godot/imported/stylized_coin_0.jpg-1aed23e97a726d30dc684b818cc10d69.s3tc.ctex::
+::res://assets/::1765690328
+::res://assets/models/::1765686959
+arm.glb::PackedScene/PackedScene::6786942479142308564::1765686841::1765686959::1::::<><><>0<>0<>7ebdb563e92220753203e1e52b21e165<>res://.godot/imported/arm.glb-949a4d2388bc6c4a81c7f2ef713a8c27.scn::
+::res://assets/models/robot_arm_blender_mechanically_rigged_gltf/::1765686958
+scene.gltf::PackedScene/PackedScene::6552318653107839335::1765686841::1765686958::1::::<><><>0<>0<>b624b896ea51f20c4b769b3f21e12888<>res://.godot/imported/scene.gltf-417ccb9545b7ff31feb742444285880e.scn::
+::res://assets/Press_Start_2P/::1765690322
+OFL.txt::TextFile::-1::1765690322::0::1::::<><><>0<>0<><>::
+PressStart2P-Regular.ttf::FontFile::5095542320964745568::1765690322::1765690337::1::::<><><>0<>0<>684fa8cd2a96d0f97742552a19faa39d<>res://.godot/imported/PressStart2P-Regular.ttf-11e3fb55973df22e8f8262ed6e7b8aed.fontdata::
+::res://Images_Subplan/::1765686957
+2025-12-09 17_54_56-(_) MainLevel.tscn - A3_RobotSmash - Godot Engine.png::CompressedTexture2D/CompressedTexture2D::8354408202191477998::1765686841::1765686957::1::::<><><>0<>0<>8bb2a1fa4b883331e7d829948ca6b4f8<>res://.godot/imported/2025-12-09 17_54_56-(_) MainLevel.tscn - A3_RobotSmash - Godot Engine.png-b3a1c86b9d5fac0196c3c5f0be9c57e1.ctex::
+2025-12-09 17_55_41-MainLevel.tscn - A3_RobotSmash - Godot Engine.png::CompressedTexture2D/CompressedTexture2D::6016605106045683823::1765686841::1765686957::1::::<><><>0<>0<>5267dc381f91fb21605cd3a2f7dc1382<>res://.godot/imported/2025-12-09 17_55_41-MainLevel.tscn - A3_RobotSmash - Godot Engine.png-f76789662c1ce2d09f1917d16b81438f.ctex::
+2025-12-09 17_56_13-.png::CompressedTexture2D/CompressedTexture2D::1287676112446344627::1765686841::1765686957::1::::<><><>0<>0<>4c3b2e7d07a9080644e529eb00baf585<>res://.godot/imported/2025-12-09 17_56_13-.png-7889cb1212f0b7876c3a0dd578ce8588.ctex::
