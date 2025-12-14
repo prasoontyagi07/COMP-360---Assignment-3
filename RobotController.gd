@@ -146,6 +146,7 @@ func hop_action() -> void:
 	is_hopping = false
 
 func smash_action() -> void:
+	
 	if animation_player == null:
 		return
 	if not animation_player.has_animation(SMASH_ANIM_NAME):
@@ -155,6 +156,7 @@ func smash_action() -> void:
 		return
 
 	is_smashing = true
+
 
 	animation_player.stop()
 	animation_player.play(SMASH_ANIM_NAME)
@@ -167,6 +169,8 @@ func smash_action() -> void:
 	# Return to idle
 	if animation_player.has_animation(IDLE_ANIM_NAME):
 		animation_player.play(IDLE_ANIM_NAME)
+		
+		
 
 func _on_claw_hitbox_body_entered(body: Node) -> void:
 	# Only trigger smash effects during the smash window

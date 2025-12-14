@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3bsfvhane57v"]
+[gd_scene load_steps=5 format=3 uid="uid://3bsfvhane57v"]
 
 [ext_resource type="Script" uid="uid://c3od2ubjqcal7" path="res://static_body_3d.gd" id="1_keq0u"]
 [ext_resource type="PackedScene" uid="uid://bmrv8jtmugcpa" path="res://sketchfab_scene.tscn" id="2_peeb0"]
+[ext_resource type="AudioStream" uid="uid://b2os2yrlervpr" path="res://sounds/hammer-smash-effect-382731.wav" id="3_peeb0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fi62q"]
 size = Vector3(1.0695369, 1.1472669, 1.1892025)
@@ -16,3 +17,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028774738, 0.5424292, -0.0007098913)
 shape = SubResource("BoxShape3D_fi62q")
+
+[node name="SmashSound3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_peeb0")
+volume_db = 5.0
+max_distance = 100.0
