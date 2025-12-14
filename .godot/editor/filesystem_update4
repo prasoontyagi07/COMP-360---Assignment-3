@@ -1,9 +1,2 @@
-res://basic_crate_0.jpg
-res://basic_crate_3.jpg
-res://basic_crate_4.jpg
-res://stylized_coin_0.jpg
 res://MainLevel.tscn
-res://RobotArm.tscn
-res://coin.gd
-res://coin.tscn
 res://GameManager.gd
