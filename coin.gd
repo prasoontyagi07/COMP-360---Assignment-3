@@ -1,4 +1,5 @@
 # Coin.gd
+class_name Coin
 extends Area3D
 
 @export var spin_speed: float = 2.5

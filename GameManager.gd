@@ -1,49 +1,79 @@
 extends Node3D
 
 @export var target_scene: PackedScene
-@export var spawn_interval := 2.0
-@export var game_duration := 30.0
-@export var timer_label: Label
+@export var spawn_interval: float = 2.0
+@export var game_duration: float = 30.0
 
-var game_timer: Timer
+@export var timer_label_path: NodePath = "HUD/TimerLabel" # change if yours differs
+
+const COIN_SCRIPT := preload("res://coin.gd") # lets us read COIN_SCRIPT.score safely
+
 var spawn_timer: Timer
+var time_left: float = 0.0
+var game_over := false
 
+func _ready() -> void:
+	randomize()
 
-func _ready():
-	print("GameManager started")
-
-	game_timer = Timer.new()
-	game_timer.wait_time = game_duration
-	game_timer.one_shot = true
-	game_timer.timeout.connect(_on_game_timer_timeout)
-	add_child(game_timer)
-	game_timer.start()
+	time_left = game_duration
+	_update_timer_label()
 
 	spawn_timer = Timer.new()
 	spawn_timer.wait_time = spawn_interval
+	spawn_timer.one_shot = false
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
 	spawn_timer.start()
 
+func _process(delta: float) -> void:
+	if game_over:
+		return
 
-func _process(delta):
-	if game_timer and timer_label:
-		timer_label.text = "Time: " + str(int(game_timer.time_left))
+	time_left = max(time_left - delta, 0.0)
+	_update_timer_label()
 
+	if time_left <= 0.0:
+		_end_game()
 
-func _on_spawn_timer_timeout():
+func _on_spawn_timer_timeout() -> void:
+	if game_over:
+		return
 	if target_scene == null:
 		return
 
-	var instance = target_scene.instantiate()
-	instance.position = Vector3(
-		randf_range(-5, 5),
-		1,
-		randf_range(-5, 5)
+	var inst := target_scene.instantiate() as Node3D
+	if inst == null:
+		return
+
+	# Add FIRST (so it's inside tree), then set global position
+	var scene_root := get_tree().current_scene
+	if scene_root == null:
+		scene_root = get_parent() # fallback
+
+	scene_root.add_child(inst)
+
+	inst.global_position = Vector3(
+		randf_range(-5.0, 5.0),
+		1.0,
+		randf_range(-5.0, 5.0)
 	)
-	get_parent().add_child(instance)
 
+func _update_timer_label() -> void:
+	if timer_label_path == NodePath():
+		return
 
-func _on_game_timer_timeout():
-	spawn_timer.stop()
-	print("Game over – stopping spawns")
+	var scene_root := get_tree().current_scene
+	if scene_root == null:
+		return
+
+	var n := scene_root.get_node_or_null(timer_label_path)
+	if n is Label:
+		n.text = "Time: %d" % int(ceil(time_left))
+
+func _end_game() -> void:
+	game_over = true
+	if spawn_timer:
+		spawn_timer.stop()
+
+	print("⛔ Time up! Final score: ", Coin.score)
+	# need to add this later: show game over UI, disable player controls, etc.

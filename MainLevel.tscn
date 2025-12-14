@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cthf865fk5g2g"]
+[gd_scene load_steps=33 format=4 uid="uid://cthf865fk5g2g"]
 
 [ext_resource type="PackedScene" uid="uid://duqdrhitlc63h" path="res://RobotArm.tscn" id="1_jq6gy"]
 [ext_resource type="PackedScene" uid="uid://3bsfvhane57v" path="res://SmashTarget.tscn" id="1_o3cl4"]
@@ -264,9 +264,9 @@ grow_horizontal = 0
 text = "Time: 30
 "
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("timer_label") instance=ExtResource("10_78kfj")]
+[node name="GameManager" parent="." instance=ExtResource("10_78kfj")]
 target_scene = ExtResource("1_o3cl4")
-timer_label = NodePath("../HUD/TimerLabel")
+
 [node name="Wall_N" type="MeshInstance3D" parent="."]
 transform = Transform3D(22, 0, 0, 0, 15, 0, 0, 0, 1, 0, 2, -10.9921)
 material_override = SubResource("StandardMaterial3D_p40m6")
