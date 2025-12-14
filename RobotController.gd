@@ -181,5 +181,5 @@ func _on_claw_hitbox_body_entered(body: Node) -> void:
 		if body.has_method("smash"):
 			body.call_deferred("smash")  # safe even if we’re mid-physics step
 		else:
-			# fallback so it still works even before you add the target script
+			# fallback
 			body.queue_free()

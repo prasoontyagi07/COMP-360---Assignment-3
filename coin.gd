@@ -1,0 +1,33 @@
+# Coin.gd
+extends Area3D
+
+@export var spin_speed: float = 2.5
+@export var bob_height: float = 0.15
+@export var bob_speed: float = 4.0
+
+var _start_y: float
+var _t: float = 0.0
+var _picked := false
+
+func _ready() -> void:
+	_start_y = global_position.y
+	body_entered.connect(_on_body_entered)
+
+func _process(delta: float) -> void:
+	# Spin
+	rotate_y(spin_speed * delta)
+
+	_t += delta
+	var p := global_position
+	p.y = _start_y + sin(_t * bob_speed) * bob_height
+	global_position = p
+
+func _on_body_entered(body: Node) -> void:
+	if _picked:
+		return
+
+	# Only the robot/player can pick it up
+	if body != null and body.is_in_group("player"):
+		_picked = true
+		# add score counter here
+		queue_free()

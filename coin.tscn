@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://1rignv7aqoat"]
+
+[ext_resource type="Script" uid="uid://cpdk20dk2dbt3" path="res://coin.gd" id="1_0t63x"]
+[ext_resource type="PackedScene" uid="uid://cvtu1r6g54y4i" path="res://stylized_coin.glb" id="2_v7riw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pdq0q"]
+radius = 0.49165845
+
+[node name="Coin" type="Area3D" groups=["coin"]]
+script = ExtResource("1_0t63x")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_v7riw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004515648, 0.76829535, -0.02252996)
+shape = SubResource("SphereShape3D_pdq0q")
