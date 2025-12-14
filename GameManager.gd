@@ -1,10 +1,11 @@
+# GameManager.gd
 extends Node3D
 
 @export var target_scene: PackedScene
 @export var spawn_interval: float = 2.0
 @export var game_duration: float = 30.0
 
-@export var timer_label_path: NodePath = "HUD/TimerLabel" # change if yours differs
+@export var timer_label_path: NodePath = "HUD/TimerLabel" # Displays time, and later, the status
 
 const COIN_SCRIPT := preload("res://coin.gd") # lets us read COIN_SCRIPT.score safely
 
@@ -71,9 +72,27 @@ func _update_timer_label() -> void:
 		n.text = "Time: %d" % int(ceil(time_left))
 
 func _end_game() -> void:
+	if game_over:
+		return
+		
 	game_over = true
 	if spawn_timer:
 		spawn_timer.stop()
 
-	print("⛔ Time up! Final score: ", Coin.score)
-	# need to add this later: show game over UI, disable player controls, etc.
+	# --- NEW: Display Game Over Message on Timer Label ---
+	var final_score = COIN_SCRIPT.score
+	
+	if timer_label_path != NodePath():
+		var scene_root := get_tree().current_scene
+		if scene_root:
+			var n := scene_root.get_node_or_null(timer_label_path)
+			if n is Label:
+				# Use a larger font or change color in the theme override for better visibility
+				n.text = "TIME OVER! Score: %d" % final_score
+	# ----------------------------------------------------
+	
+	print("⛔ Time up! Final score: ", final_score)
+	
+	# Disable player control
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true

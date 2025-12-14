@@ -157,20 +157,28 @@ func smash_action() -> void:
 
 	is_smashing = true
 
-
 	animation_player.stop()
 	animation_player.play(SMASH_ANIM_NAME)
 
 	# Wait until the smash animation finishes
 	await animation_player.animation_finished
 
-	is_smashing = false
+	# Only reset to idle if reset_smash() hasn't been called by a target
+	if is_smashing: 
+		is_smashing = false
+		if animation_player.has_animation(IDLE_ANIM_NAME):
+			animation_player.play(IDLE_ANIM_NAME)
 
-	# Return to idle
-	if animation_player.has_animation(IDLE_ANIM_NAME):
-		animation_player.play(IDLE_ANIM_NAME)
-		
-		
+
+# --- NEW FUNCTION TO PREVENT MULTI-HITS ---
+func reset_smash() -> void:
+	if is_smashing:
+		is_smashing = false
+		animation_player.stop()
+		if animation_player.has_animation(IDLE_ANIM_NAME):
+			animation_player.play(IDLE_ANIM_NAME)
+# -------------------------------------------
+
 
 func _on_claw_hitbox_body_entered(body: Node) -> void:
 	# Only trigger smash effects during the smash window
@@ -183,7 +191,7 @@ func _on_claw_hitbox_body_entered(body: Node) -> void:
 	if body.is_in_group("smash_target"):
 		# NEW: call smash() on the target (target handles fade/coins/etc)
 		if body.has_method("smash"):
-			body.call_deferred("smash")  # safe even if we’re mid-physics step
+			body.call_deferred("smash")	# safe even if we’re mid-physics step
 		else:
 			# fallback
 			body.queue_free()

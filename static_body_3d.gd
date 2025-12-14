@@ -1,9 +1,10 @@
+# static_body_3d.gd
 extends StaticBody3D
 
 @export var fade_time := 0.25
 @export var coin_scene: PackedScene
 @export var coin_count := 1
-@export var coin_spread := 0   
+@export var coin_spread := 0	
 
 @onready var mesh: GeometryInstance3D = find_child("MeshInstance3D", true, false)
 
@@ -16,10 +17,17 @@ func _ready() -> void:
 func smash() -> void:
 	print("BOX SMASHED")
 
-
 	if _smashed:
 		return
 	_smashed = true
+
+	# --- NEW: Tell the RobotController to reset the smash state ---
+	# Find the robot node (assuming it's in the "player" group)
+	var robot_node = get_tree().get_first_node_in_group("player")
+	
+	if robot_node and robot_node.has_method("reset_smash"):
+		robot_node.reset_smash()
+	# -------------------------------------------------------------
 
 	_spawn_coins()
 
@@ -41,7 +49,6 @@ func _spawn_coins() -> void:
 		return
 		
 
-
 	for i in range(coin_count):
 		var coin := coin_scene.instantiate()
 		parent.add_child(coin)
@@ -55,7 +62,7 @@ func _spawn_coins() -> void:
 
 		coin.global_position = global_position + offset
 
-		# tiny “pop” up/down tween 
+		# tiny “pop” up/down tween	
 		var pop := coin.create_tween()
 		pop.tween_property(coin, "global_position", coin.global_position + Vector3(0, 0.4, 0), 0.12)
 		pop.tween_property(coin, "global_position", coin.global_position, 0.18)

@@ -1,2 +1,4 @@
 res://MainLevel.tscn
+res://RobotController.gd
+res://static_body_3d.gd
 res://GameManager.gd
