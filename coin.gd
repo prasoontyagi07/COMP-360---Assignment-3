@@ -42,5 +42,12 @@ func _on_body_entered(body: Node) -> void:
 		_picked = true
 		score += 1
 		_update_score_label()
-		# add score counter here
+
+		# ▶ Play coin sound
+		$AudioStreamPlayer3D.play()
+
+		# ⏳ Small delay so sound can finish
+		await get_tree().create_timer(0.3).timeout
+
+		# ❌ Remove coin
 		queue_free()
