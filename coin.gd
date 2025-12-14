@@ -8,6 +8,7 @@ extends Area3D
 var _start_y: float
 var _t: float = 0.0
 var _picked := false
+static var score: int = 0
 
 func _ready() -> void:
 	_start_y = global_position.y
@@ -21,7 +22,17 @@ func _process(delta: float) -> void:
 	var p := global_position
 	p.y = _start_y + sin(_t * bob_speed) * bob_height
 	global_position = p
+	
+func _update_score_label() -> void:
+	var scene := get_tree().current_scene
+	if scene == null:
+		return
 
+	var path := "HUD/ScoreLabel"
+	if scene.has_node(path):
+		var lbl := scene.get_node(path)
+		if lbl is Label:
+			lbl.text = "Score: %d" % score
 func _on_body_entered(body: Node) -> void:
 	if _picked:
 		return
@@ -29,5 +40,7 @@ func _on_body_entered(body: Node) -> void:
 	# Only the robot/player can pick it up
 	if body != null and body.is_in_group("player"):
 		_picked = true
+		score += 1
+		_update_score_label()
 		# add score counter here
 		queue_free()

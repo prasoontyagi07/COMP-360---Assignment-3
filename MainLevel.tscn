@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cthf865fk5g2g"]
+[gd_scene load_steps=30 format=4 uid="uid://cthf865fk5g2g"]
 
 [ext_resource type="PackedScene" uid="uid://duqdrhitlc63h" path="res://RobotArm.tscn" id="1_jq6gy"]
 [ext_resource type="PackedScene" uid="uid://3bsfvhane57v" path="res://SmashTarget.tscn" id="1_o3cl4"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dy7jth5x6as0g" path="res://basic_crate_0.jpg" id="5_m50br"]
 [ext_resource type="Texture2D" uid="uid://fj21p7x1quid" path="res://basic_crate_2.png" id="5_taiwb"]
 [ext_resource type="Texture2D" uid="uid://bo8qa46g8g23h" path="res://basic_crate_1.png" id="6_p40m6"]
+[ext_resource type="FontFile" uid="uid://ceuk3qhnhyv5a" path="res://assets/Press_Start_2P/PressStart2P-Regular.ttf" id="9_p40m6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq6gy"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
 [sub_resource type="Sky" id="Sky_o3cl4"]
 sky_material = SubResource("ProceduralSkyMaterial_jq6gy")
@@ -29,7 +30,7 @@ material = SubResource("StandardMaterial3D_rj4so")
 size = Vector2(20, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3cl4"]
-albedo_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+albedo_color = Color(0.589096, 0.589096, 0.589096, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jq6gy"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
@@ -166,6 +167,11 @@ shadow_mesh = SubResource("ArrayMesh_y8ukw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmshu"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_0rh38"]
+font = ExtResource("9_p40m6")
+font_size = 36
+font_color = Color(1, 0, 0, 1)
+
 [node name="MainLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -181,21 +187,21 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o3cl4")
 shape = SubResource("ConcavePolygonShape3D_jq6gy")
 
 [node name="Target1" parent="." instance=ExtResource("1_o3cl4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8883514, 0.23592544, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88835, 0.235925, 0)
 
 [node name="defaultMaterial" parent="Target1/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/crate" index="0"]
 mesh = SubResource("ArrayMesh_m50br")
 surface_material_override/0 = SubResource("StandardMaterial3D_0rh38")
 
 [node name="Target2" parent="." instance=ExtResource("1_o3cl4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.530487, 0, 5.2441416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53049, 0, 5.24414)
 
 [node name="defaultMaterial" parent="Target2/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/crate" index="0"]
 mesh = SubResource("ArrayMesh_78kfj")
 surface_material_override/0 = SubResource("StandardMaterial3D_ivlct")
 
 [node name="Target3" parent="." instance=ExtResource("1_o3cl4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7281823, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72818, 0, 0)
 
 [node name="defaultMaterial" parent="Target3/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/crate" index="0"]
 mesh = SubResource("ArrayMesh_d1soc")
@@ -205,14 +211,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_l7u77")
 visible = false
 
 [node name="Target4" parent="." instance=ExtResource("1_o3cl4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.658602)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.6586)
 
 [node name="defaultMaterial" parent="Target4/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/crate" index="0"]
 mesh = SubResource("ArrayMesh_dol1n")
 surface_material_override/0 = SubResource("StandardMaterial3D_u86cj")
 
 [node name="Target5" parent="." instance=ExtResource("1_o3cl4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30340767, 0, -5.0977383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303408, 0, -5.09774)
 
 [node name="defaultMaterial" parent="Target5/Sketchfab_Scene/Sketchfab_model/Collada visual scene group/crate" index="0"]
 mesh = SubResource("ArrayMesh_puqvf")
@@ -222,14 +228,24 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cmshu")
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.80548656, -0.35087323, 0.47757667, 0.12942198, 0.89058155, 0.43602124, -0.5783091, -0.2894003, 0.7627621, 7.0033007, 6.872566, 5.048139)
-fov = 94.209496
+transform = Transform3D(0.805487, -0.350873, 0.477577, 0.129422, 0.890582, 0.436021, -0.578309, -0.2894, 0.762762, 7.0033, 6.87257, 5.04814)
+fov = 94.2095
 near = 0.001
 
 [node name="CharacterBody3D" parent="." groups=["player"] instance=ExtResource("1_jq6gy")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6859503, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.68595, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 522.0
+offset_bottom = 80.0
+text = "Score:  0"
+label_settings = SubResource("LabelSettings_0rh38")
 
 [editable path="Target1"]
 [editable path="Target1/Sketchfab_Scene"]
