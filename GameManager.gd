@@ -46,7 +46,7 @@ func _on_spawn_timer_timeout() -> void:
 	if inst == null:
 		return
 
-	# Add FIRST (so it's inside tree), then set global position
+	# Add FIRST then set global position
 	var scene_root := get_tree().current_scene
 	if scene_root == null:
 		scene_root = get_parent() # fallback
@@ -79,7 +79,7 @@ func _end_game() -> void:
 	if spawn_timer:
 		spawn_timer.stop()
 
-	# --- NEW: Display Game Over Message on Timer Label ---
+	# Display Game Over Message on Timer Label
 	var final_score = COIN_SCRIPT.score
 	
 	if timer_label_path != NodePath():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cthf865fk5g2g"]
+[gd_scene load_steps=34 format=4 uid="uid://cthf865fk5g2g"]
 
 [ext_resource type="PackedScene" uid="uid://duqdrhitlc63h" path="res://RobotArm.tscn" id="1_jq6gy"]
 [ext_resource type="PackedScene" path="res://SmashTarget.tscn" id="1_o3cl4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8qa46g8g23h" path="res://basic_crate_1.png" id="6_p40m6"]
 [ext_resource type="FontFile" uid="uid://ceuk3qhnhyv5a" path="res://assets/Press_Start_2P/PressStart2P-Regular.ttf" id="9_p40m6"]
 [ext_resource type="PackedScene" path="res://game_manager.tscn" id="10_78kfj"]
+[ext_resource type="Script" uid="uid://c1vwavjs47j1u" path="res://LandscapeGenerator.gd" id="11_78kfj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq6gy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -286,6 +287,9 @@ mesh = SubResource("BoxMesh_0rh38")
 transform = Transform3D(-8.74228e-07, 0, 1, 0, 15, 0, -20, 0, -4.37114e-08, -10.7126, 2, 0)
 material_override = SubResource("StandardMaterial3D_p40m6")
 mesh = SubResource("BoxMesh_0rh38")
+
+[node name="LandscapeGenerator" type="Node3D" parent="."]
+script = ExtResource("11_78kfj")
 
 [editable path="Target1"]
 [editable path="Target1/Sketchfab_Scene"]
