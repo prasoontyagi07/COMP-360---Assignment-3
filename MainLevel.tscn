@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c75pnrep0a44h" path="res://basic_crate_3.jpg" id="2_ri6rb"]
 [ext_resource type="Texture2D" uid="uid://ofus6p5f2pv7" path="res://basic_crate_4.jpg" id="3_taiwb"]
 [ext_resource type="Texture2D" uid="uid://bsek8h45yjfr5" path="res://basic_crate_5.png" id="4_cb5hs"]
-[ext_resource type="Texture2D" uid="uid://c4gdoot537qk2" path="res://basic_crate_0.jpg" id="5_m50br"]
+[ext_resource type="Texture2D" uid="uid://dy7jth5x6as0g" path="res://basic_crate_0.jpg" id="5_m50br"]
 [ext_resource type="Texture2D" uid="uid://fj21p7x1quid" path="res://basic_crate_2.png" id="5_taiwb"]
 [ext_resource type="Texture2D" uid="uid://bo8qa46g8g23h" path="res://basic_crate_1.png" id="6_p40m6"]
 [ext_resource type="FontFile" uid="uid://ceuk3qhnhyv5a" path="res://assets/Press_Start_2P/PressStart2P-Regular.ttf" id="9_p40m6"]
