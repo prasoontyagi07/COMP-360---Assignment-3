@@ -1,2 +1,10 @@
 res://MainLevel.tscn
 res://GameManager.gd
+res://coin.tscn
+res://coin.gd
+res://game_manager.tscn
+res://sketchfab_scene.tscn
+res://RobotArm.tscn
+res://BrickBuilding.tscn
+res://BrickMat.tres
+res://brick_building.gd

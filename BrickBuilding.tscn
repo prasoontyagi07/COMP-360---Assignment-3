@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://3sk5mphl7dgj"]
+
+[ext_resource type="Script" uid="uid://bcy3r75rmei40" path="res://brick_building.gd" id="1_m5rpy"]
+[ext_resource type="Material" uid="uid://lye6vyguuv6r" path="res://BrickMat.tres" id="2_dtu8l"]
+
+[node name="BrickBuilding" type="Node3D"]
+script = ExtResource("1_m5rpy")
+brick_material = ExtResource("2_dtu8l")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

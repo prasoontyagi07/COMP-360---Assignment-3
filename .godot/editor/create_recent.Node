@@ -1,8 +1,9 @@
+DirectionalLight3D
+Camera3D
+Node3D
 Label
 CanvasLayer
-DirectionalLight3D
 CollisionShape3D
 CharacterBody3D
 AnimationPlayer
-Camera3D
 MeshInstance3D

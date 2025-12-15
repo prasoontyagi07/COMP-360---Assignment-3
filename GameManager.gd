@@ -4,7 +4,7 @@ extends Node3D
 @export var spawn_interval: float = 2.0
 @export var game_duration: float = 30.0
 
-@export var timer_label_path: NodePath = "HUD/TimerLabel" # change if yours differs
+@export var timer_label_path: NodePath = "HUD/TimerLabel" # change if needed
 
 const COIN_SCRIPT := preload("res://coin.gd") # lets us read COIN_SCRIPT.score safely
 
@@ -45,7 +45,7 @@ func _on_spawn_timer_timeout() -> void:
 	if inst == null:
 		return
 
-	# Add FIRST (so it's inside tree), then set global position
+	# Add FIRST (so it's inside tree)
 	var scene_root := get_tree().current_scene
 	if scene_root == null:
 		scene_root = get_parent() # fallback
